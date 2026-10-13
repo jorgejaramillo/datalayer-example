@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="builder" content="Stronglify">
+
+<title>Artículo de prueba - DataLayer GA</title>
+<meta name="description" content="Artículo de prueba sobre dataLayer.">
+<meta name="robots" content="index">
+<link rel="canonical" href="https://jorgejaramillo.github.io/datalayer-example/article.html"><style>
+html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}
+fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}img{max-width:100%;height:auto}
+</style><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23151A1C'/%3E%3Ctext x='16' y='23' font-family='Arial' font-size='20' font-weight='700' fill='%23F2EFE7' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="https://media.stronglify.com/tailwind-play-3.4.17.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { condensed: ['Barlow Condensed', 'Arial Narrow', 'sans-serif'], mono: ['IBM Plex Mono', 'ui-monospace', 'monospace'] },
+        colors: { paper: '#FFFFFF', ink: '#151A1C', signal: '#D95F32' }
+      }
+    }
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  ::selection { background: #D95F32; color: #151A1C; }
+  .focus-ring:focus-visible { outline: 2px solid #D95F32; outline-offset: 4px; }
+  .nav-link { transition: color 180ms ease, border-color 180ms ease; }
+  .nav-link:hover { color: #D95F32; border-color: #D95F32; }
+  .button-move { transition: transform 180ms ease, background-color 180ms ease, color 180ms ease; }
+  .button-move:hover { background: #151A1C; color: #FFFFFF; }
+  .button-move:active { transform: scale(.98); }
+  .image-window { overflow: hidden; }
+  .image-window img { transition: transform 500ms ease; }
+  .image-window:hover img { transform: scale(1.025); }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+</style>
+<style id="contrast-fix">
+ 
+footer.bg-paper h2.text-signal{color:#A8421F}
+</style></head>
+<body class="overflow-x-hidden bg-paper font-condensed text-[17px] leading-[1.35] text-ink antialiased">
+  <header>
+  <nav class="sticky top-0 z-50 border-b border-ink/20 bg-paper/95 backdrop-blur">
+    <div class="mx-auto grid h-20 max-w-[1440px] grid-cols-[1fr_auto_1fr] items-center gap-4 px-[clamp(18px,3.4vw,44px)]">
+      <ul class="hidden gap-3 md:flex lg:gap-6">
+        
+      </ul>
+      <a class="focus-ring col-start-2 text-center text-[clamp(18px,5vw,26px)] font-black tracking-[.15em]" href="/movimiento/#hero" aria-label="Inicio de Movimiento">MOVIMIENTO</a>
+      <button id="menu-toggle" class="focus-ring col-start-3 grid h-10 w-10 place-items-center justify-self-end md:hidden" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú"><span class="grid gap-1.5" aria-hidden="true"><span class="block h-px w-5 bg-ink"></span><span class="block h-px w-5 bg-ink"></span><span class="block h-px w-5 bg-ink"></span></span><span class="sr-only">Menú</span></button>
+    </div>
+    <div id="mobile-menu" class="hidden border-t border-ink/20 md:hidden">
+      <div class="mx-auto grid max-w-[1440px] gap-1 px-[clamp(18px,3.4vw,44px)] py-4">
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <article>
+    <header class="border-b border-ink/20 py-[clamp(52px,10vh,126px)]">
+      <div class="mx-auto max-w-[1440px] px-[clamp(18px,3.4vw,44px)]">
+        <p class="border-l-2 border-signal pl-3 font-mono text-[10px] font-medium uppercase tracking-[.16em]">Analytics</p>
+        <h1 class="mt-7 max-w-[13ch] text-[clamp(58px,9vw,132px)] font-black uppercase leading-[.76] tracking-[-.04em]">Cómo leer un evento de dataLayer</h1>
+        <p class="mt-8 max-w-[34ch] text-[clamp(20px,2vw,28px)] leading-[1.15] text-ink/75">Un evento de dataLayer es un objeto que la página envía a Google Tag Manager. Este artículo de prueba explica sus partes.</p>
+      </div>
+    </header>
+
+    <figure class="border-b border-ink/20">
+      <div class="image-window mx-auto max-w-[1440px] bg-ink"><img class="aspect-[16/9] w-full object-cover grayscale" src="https://media.stronglify.com/295/nexus-13-1791317567-1791468612.png" alt="Persona con camisa de cuello abierto recorriendo una calle de ciudad" loading="eager"></div>
+      <figcaption class="mx-auto max-w-[1440px] px-[clamp(18px,3.4vw,44px)] py-3 font-mono text-[10px] uppercase tracking-[.12em] text-ink/65">Imagen de prueba</figcaption>
+    </figure>
+
+    <div class="mx-auto max-w-[760px] px-[clamp(18px,3.4vw,44px)] py-[clamp(48px,9vh,112px)]">
+      <p style="text-align: left;">Cada evento tiene un nombre en la clave event y, opcionalmente, datos del contexto, como el producto o el valor de la compra.</p><h2 style="text-align: left;"> Partes de un evento </h2><p style="text-align: left;">Un evento básico solo necesita el nombre. Los eventos de comercio electrónico agregan un objeto ecommerce con la moneda, el valor y la lista de productos.</p>
+
+      <figure class="my-12">
+        <div class="image-window bg-ink/10"><img class="aspect-[4/3] w-full object-cover grayscale" src="https://media.stronglify.com/295/movimiento-15-1791564590.jpg" alt="Vista cercana de la lana de un abrigo Movimiento" loading="lazy"></div>
+        <figcaption class="mt-3 font-mono text-[10px] uppercase tracking-[.12em] text-ink/65">Material que gana carácter con el uso.</figcaption>
+      </figure>
+
+      <h3 style="text-align: left;"> La prenda no decide el plan </h3><p style="text-align: left;">La ropa puede acompañar una intención sin volverla rígida. Cuando la base es clara, cada pieza siguiente tiene margen para cambiar de contexto y seguir sintiéndose propia.</p><p style="text-align: left;"><em>“Vestirse bien para la ciudad es conservar la posibilidad de decir sí.”</em></p><p style="text-align: left;">Esta temporada volvemos a las mismas materias y a proporciones que dejan respirar el cuerpo. Puedes <a class="focus-ring nav-link border-b border-signal pb-1" href="index.html#shop">explorar la selección diaria</a> o seguir recorriendo las notas que nacen en el estudio.</p>
+    </div>
+  </article>
+
+  <section class="border-t border-ink/20 bg-ink py-[clamp(44px,8vh,92px)] text-paper">
+    <div class="mx-auto max-w-[1440px] px-[clamp(18px,3.4vw,44px)]">
+      <p class="font-mono text-[10px] uppercase tracking-[.16em] text-paper/65">Sigue el recorrido</p>
+      <div class="mt-5 grid gap-5 md:grid-cols-2">
+        
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-paper py-[clamp(44px,7vh,84px)]">
+  <div class="mx-auto max-w-[1440px] px-[clamp(18px,3.4vw,44px)]">
+    <div class="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
+      <div><p class="text-[32px] font-black tracking-[.15em]">MOVIMIENTO</p><address class="mt-4 font-mono text-[11px] not-italic leading-[1.8] text-ink/70">18 Redchurch Street<br>London E2 7DP<br><br>hello@movimiento.studio</address></div>
+      
+    </div>
+    <div class="mt-12 flex flex-wrap justify-between gap-4 border-t border-ink/20 pt-5 font-mono text-[10px] uppercase tracking-[.08em] text-ink/65"><span>© 2026 Movimiento Estudio Ltd / Empresa 11482207</span><span>Precios con IVA incluido</span></div>
+  </div>
+</footer>
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeMenu = () => {
+    mobileMenu.classList.add('hidden');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Abrir menú');
+  };
+  menuToggle.addEventListener('click', () => {
+    const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      closeMenu();
+    } else {
+      mobileMenu.classList.remove('hidden');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      menuToggle.setAttribute('aria-label', 'Cerrar menú');
+    }
+  });
+  mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') closeMenu();
+  });
+</script>
+</body>
+</html>
